@@ -15,10 +15,10 @@ class Scanner {
   private int current = 0;
   private int line = 1;
 
-  Scanner(String source) {
+Scanner(String source) {
     this.source = source;
   }
-}
+
 
 List<Token> scanTokens() {
   while (!isAtEnd()) {
@@ -101,8 +101,7 @@ private void number() {
     while (isDigit(peek())) advance();
   }
 
-  addToken(NUMBER,
-      Double.parseDouble(source.substring(start, current)));
+  addToken(NUMBER,Double.parseDouble(source.substring(start, current)));
 }
 
 
@@ -142,7 +141,7 @@ private void string() {
     if (current + 1 >= source.length()) return '\0';
     return source.charAt(current + 1);
   } 
-  
+
   private boolean isDigit(char c) {
     return c >= '0' && c <= '9';
   } 
